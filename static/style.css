@@ -1,0 +1,460 @@
+* , html{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    display: block;
+    background-color: #210036;
+}
+header{
+    background-color: #3F005F;
+    height: 150px;
+    display: flex;
+}
+.header-h1{
+    color: #B7E0FF;
+    text-align: left;
+    width: 30%;
+    font-size: 40px;
+    padding-top: 45px;
+    font-weight:700;
+    padding-left: 10px;
+}
+header a{
+    text-decoration: none;
+    color: #F1F5FF;
+    font-weight: 300;
+    font-size: 40px;
+    padding-left: 10px;
+    padding-top: 45px;
+    padding-right: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: #210036;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #682d8b;
+    border-radius: 10px;
+}
+/*------------------------------------------------------------*/
+.var {
+    display: flex;
+    justify-content: flex-end; 
+    width: 65%; 
+    gap: 15px;
+    padding-top:-10px;
+    padding-right: 40px; 
+    align-items: center; 
+}
+
+.dark-box{
+    background-color: #490079;
+    color: white;
+    padding: 30px;
+    font-size: 20px;
+    border-radius: 30px;
+}
+.li-box{
+    background-color: #7900BE;
+    color: white;
+    padding: 30px;
+    display: flex;
+    font-size: 20px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.card-study{
+    text-align: center;
+    display: block;
+    color: white;
+    max-width:40%;
+}
+.card-study a{
+    color: white;
+    padding: 30px;
+    text-decoration: none;
+    border-radius: 30px;
+}
+
+.card-study a:hover{
+    background-color: #65009f; 
+    background-clip: padding-box; 
+    padding: 30px;
+}
+
+.chat-input {
+    background-color: #F4E1FF;
+    border: none;
+    border-radius: 10px;
+    text-align: left;
+    width: 55%;
+    padding: 10px;
+    min-height: 50px; 
+    max-height: 80px; 
+    resize: none;
+    position: fixed;
+    bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-y: auto; 
+}
+
+
+
+.chat-input::placeholder{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.but-input{
+    background-color: #fff45c;
+    border: none;
+    bottom: 20px;
+    right: 15px;
+    height: 50px;
+    padding: 10px;
+    font-size: 25px;
+    width: 15%;
+    position: fixed;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.but-input:hover{
+    background-color: #ffee00;
+}
+
+.chat-box{
+    margin-top: 60px;
+    padding: 5px;
+}
+
+.chat-history {
+    width: calc(100vw - 25vw);
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    height: 100%; 
+    box-sizing: border-box;
+}
+
+.chat-message {
+    padding: 35x;
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-message {
+    background-color: #54008D;
+    color: #f1c40f;
+    align-self: flex-end;
+    text-align: left;
+    font-weight: 400;
+    padding: 10px;
+    max-width: 60%;
+    border-radius: 10px 10px 0 10px;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #ffffff;
+    color: #000;
+    align-self: flex-start;
+    text-align: left;
+    padding: 20px;
+    max-width: 80%;
+    border-radius: 10px 10px 10px 0;
+    margin-right: auto;
+}
+
+.topics{
+    width: 20%;
+    display: block;
+    border-bottom-left-radius: 0;
+    border-top-left-radius:0;
+    text-align: center;
+    box-sizing: border-box;
+    max-height:calc(100vh - 150px);
+}
+
+.topics a{
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    cursor: pointer;
+    margin-bottom: 70px;
+    font-weight:600;
+    display: block;
+}
+
+.topics a:hover{
+    background-color: #65009f;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+    margin-top: 15px;
+    max-width: 100%; 
+    max-height: 75vh; 
+    overflow-y: auto; 
+}
+
+.courses::-webkit-scrollbar {
+    width: 8px;
+}
+
+.courses::-webkit-scrollbar-thumb {
+    background: #a202ff;
+    border-radius: 4px;
+}
+
+
+.course-card {
+    background-color: #7900BE;
+    font-size: 25px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    color: white;   
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    height: 300px;
+    border-radius: 15px; 
+    margin-left: 30px;
+    margin-right:40px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.course-link{
+    color:white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.course-card:hover{
+    background-color: #8d00de;
+}
+
+.course-detail{
+    display: block;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #7900BE;
+    color: white;
+}
+
+.but-test{
+    cursor: pointer;
+    background-color: rgb(255, 208, 0);
+    color: rgb(111, 65, 0);
+    border: None;
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.but-test:hover{
+    background-color: rgb(227, 185, 0);
+    color:rgb(93, 54, 0);
+}
+
+.question{
+    text-align: left;   
+}
+
+.comment-input{
+    width: 75%;
+    height: 60px;
+    resize: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.907);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.comment-input::placeholder{
+    text-align: center;
+    font-size:25px;
+    font-family:"Inter";
+    padding-top:15px;
+}
+
+.input-search{
+    background-color: #490079;
+    border-radius: 10px;
+    border: None;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    height: 30px;
+    color: #f1c40f;
+    font-weight: 600;
+}
+
+.but-seacrh{
+    background-color: #f6c900;
+    padding: 15px;
+    border: None;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.but-seacrh:hover{
+    background-color: #ffda34;
+}
+
+.message-user{
+    width: 20%;
+    margin-right:80px;
+    border-radius: 0%;
+    height:100%;
+    height:calc(100vh - 210px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.messages-box{
+    display: block;
+}
+
+.but-message-send{
+    background-color: #ffe100; 
+    color: rgb(195, 110, 0); 
+    border: none; 
+    padding: 10px 20px;
+    margin-left: 10px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    font-weight: 700;
+    margin-right:10px;
+}
+
+/*доп вкладк*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #3F005F;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 100;
+}
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+}
+.dropdown-content a:hover {
+    background-color: #5F0085;
+}
+.sub-dropdown {
+    position: relative;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.main-link {
+    text-decoration: none;
+    color: #F1F5FF;
+    font-size: 40px;
+    padding: 10px;
+    display: inline-block;
+}
+
+
+.form-control {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #7900BE;
+    font-size: 16px;
+    color: #f6c900;
+    font-weight: 600;
+}
+.form-control::placeholder{
+    color: #F1F5FF;
+}
+
+.form-control-login {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+.btn-login {
+    background-color: #F4E1FF;
+    color: #3F005F;
+    border: none;
+    padding: 10px 15px;
+    font-size: 30px;
+    font-weight: 600;
+    width: 200px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #d4abed;
+}
+
+.btn-reg {
+    background-color: #F4E1FF;
+    color: #3F005F;
+    border: none;
+    padding: 10px 15px;
+    font-size: 30px;
+    font-weight: 600;
+    width: 400px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-reg:hover {
+    background-color: #d4abed;
+}
+
