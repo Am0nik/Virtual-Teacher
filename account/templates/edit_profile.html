@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Редактирование профиля</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+<body>
+    <header><!--Шапка-->
+        <a href="{% url 'index' %}" class="header-h1">Виртуальный учитель</a>
+        <div class="var">
+            <div class="dropdown">
+                <a href="{% url 'profile'%}" class="main-link">Аккаунт</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'register'%}">Зарегистрироваться</a>
+                    <a href="{% url 'login'%}">Войти</a>
+                    <a href="{% url 'search-user'%}">Найти пользователя</a>
+                    <a href="{% url 'message'%}">Сообщения</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="{% url 'study' %}" class="main-link">Обучение</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'ai-teacher' %}">Учитель</a>
+                    <a href="{% url 'all_courses' %}">Курсы(темы)</a>
+                </div>
+            </div>
+    
+            <div class="dropdown">
+                <a href="{% url 'news' %}" class="main-link">Новости</a>
+                <div class="dropdown-content">
+                    <div class="sub-dropdown">
+                        <a href="{% url 'mood-text' %}" class="main-link">Новые функции</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'about-us' %}" class="main-link">О нас</a>
+        </div>
+    </header>
+    <div style="display: block; justify-content: center; align-items: center; margin-top: 50px; width: 80%; min-width: 600px; max-width: 90%; margin-left: auto; margin-right: auto;">
+        <div class="dark-box" style="min-width: 1000px; text-align: center;">
+            <h1>Редактировать профиль</h1><br>
+            <form method="post" style="display: block;">
+                {% csrf_token %}<!--Поля редактирования(Имя пользователя, почта, возраст)-->
+                <label for="id_username">Имя пользователя:</label>
+                {{ form.username }}
+                <br><br>
+                <label for="id_email">Электронная почта:</label>
+                {{ form.email }}
+                <br><br>
+                <label for="id_age">Возраст:</label>
+                {{ form.age }}
+                <br><br>
+                <button type="submit" style="background-color: #F4E1FF;border-radius: 30px;font-size: 35px;color: #3F005F;padding: 5px;
+                font-weight: 600;border: None;cursor: pointer;">Сохранить изменения</button><!--Отпрвка изменений-->
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

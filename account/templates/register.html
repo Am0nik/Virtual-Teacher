@@ -1,0 +1,79 @@
+{% load static %}<!--Загружаем статические файлы-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+<body>
+    <header><!--Шапка-->
+        <a href="{% url 'index' %}" class="header-h1">Виртуальный учитель</a>
+        <div class="var">
+            <div class="dropdown">
+                <a href="{% url 'profile'%}" class="main-link">Аккаунт</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'register'%}">Зарегистрироваться</a>
+                    <a href="{% url 'login'%}">Войти</a>
+                    <a href="{% url 'search-user'%}">Найти пользователя</a>
+                    <a href="{% url 'message'%}">Сообщения</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="{% url 'study' %}" class="main-link">Обучение</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'ai-teacher' %}">Учитель</a>
+                    <a href="{% url 'all_courses' %}">Курсы(темы)</a>
+                </div>
+            </div>
+    
+            <div class="dropdown">
+                <a href="{% url 'news' %}" class="main-link">Новости</a>
+                <div class="dropdown-content">
+                    <div class="sub-dropdown">
+                        <a href="{% url 'mood-text' %}" class="main-link">Новые функции</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'about-us' %}" class="main-link">О нас</a>
+        </div>
+    </header>
+
+    <div style="display: flex; justify-content: center; margin-top: 50px;">
+        <div class="dark-box" style="min-width: 600px; text-align: center;">
+            <h1>Регистрация</h1><br>
+            <form method="post">
+                {% csrf_token %}
+                <!--Поля ввода даннных для регистрации-->
+                <label for="username">Имя пользователя:</label><br>
+                <input type="text" id="username" name="username" class="form-control-login" placeholder="Введите имя" required><br><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" class="form-control-login" placeholder="Введите email" required><br><br>
+                
+                <label for="password1">Пароль:</label><br>
+                <input type="password" id="password1" name="password1" class="form-control-login" placeholder="Введите пароль" required><br><br>
+                
+                <label for="password2">Повторите пароль:</label><br>
+                <input type="password" id="password2" name="password2" class="form-control-login" placeholder="Повторите пароль" required><br><br>
+                {% if form.errors %}
+                <div class="error-messages" style="color: rgb(255, 255, 0);font-size: 15px;">
+                    <ul><!--Здесь выводятся ошибки
+                        По типу: имя пользователя/почта уже заняты ли пароль слишком легкий и тд-->
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}<br>
+                <button type="submit" class="btn-reg">Зарегистрироваться</button><!--Кнопка для отправки данных на регистрацию-->
+            </form><br>
+            <p>Уже есть аккаунт? <a href="{% url 'login' %}"  style="color: rgb(255, 192, 33);">Войти</a></p><!--Если есть аккаунт,то войти-->
+        </div>
+    </div>
+</body>
+</html>

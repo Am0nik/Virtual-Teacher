@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Профиль {{ user.username }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+<body>
+    <header>
+        <a href="{% url 'index' %}" class="header-h1">Виртуальный учитель</a>
+        <div class="var">
+            <div class="dropdown">
+                <a href="{% url 'profile'%}" class="main-link">Аккаунт</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'register'%}">Зарегистрироваться</a>
+                    <a href="{% url 'login'%}">Войти</a>
+                    <a href="{% url 'search-user'%}">Найти пользователя</a>
+                    <a href="{% url 'message'%}">Сообщения</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="{% url 'study' %}" class="main-link">Обучение</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'ai-teacher' %}">Учитель</a>
+                    <a href="{% url 'all_courses' %}">Курсы(темы)</a>
+                </div>
+            </div>
+    
+            <div class="dropdown">
+                <a href="{% url 'news' %}" class="main-link">Новости</a>
+                <div class="dropdown-content">
+                    <div class="sub-dropdown">
+                        <a href="{% url 'mood-text' %}" class="main-link">Новые функции</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'about-us' %}" class="main-link">О нас</a>
+        </div>
+    </header>
+
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 50px; width: 80%; min-width: 600px; max-width: 90%; margin-left: auto; margin-right: auto;">
+        <div class="dark-box" style="min-width: 1000px; text-align: center;">
+            <h1>Профиль</h1><br>
+            <div style="display: flex;"><!--Данные пользователя-->
+                <h2 style="font-weight: 600;">Имя пользователя:</h2> <p style="font-size: 30px;font-weight: 800;color: #F4E1FF;">{{user.username}}</p>
+            </div><br>
+            <div style="display: flex;">
+                <h2 style="font-weight: 600;">Ваша роль:</h2> <p style="font-size: 30px;font-weight: 800;color: #73ff00;">{{user.role}}</p>
+            </div><br>
+            <div style="display: flex;">
+                <h2 style="font-weight: 600;">Курсов пройдено:</h2> <p style="font-size: 30px;font-weight: 800;color: #F4E1FF;">{{user.courses_completed}}</p>
+            </div><br>
+            <div style="display: flex;">
+                <h2 style="font-weight: 600;">Очки:</h2> <p style="font-size: 30px;font-weight: 800;color: #F4E1FF;">{{user.score}}</p>
+            </div><br>
+            <div style="display: flex;">
+                <h2 style="font-weight: 600;">Возраст:</h2> <p style="font-size: 30px;font-weight: 800;color: #F4E1FF;">{{user.age}}</p>
+            </div><br>
+            <div style="display: flex;">
+                <h2 style="font-weight: 600;">Дата регистриции:</h2> <p style="font-size: 30px;font-weight: 800;color: #F4E1FF;">{{user.date_joined}}</p>
+            </div><br><br>
+            <div style="display: flex;">
+                <a href="{% url 'edit' %}" style="margin-right: auto;margin-left: auto;"><!--Кнопка реадатирования-->
+                    <button type="submit" style="background-color: #F4E1FF;border-radius: 30px;font-size: 35px;color: #3F005F;padding: 5px;font-weight: 600;border: None;    cursor: pointer;">Редактировать</button>
+                </a>
+                <form action="{% url 'logout' %}" method="post"  style="margin-right: auto;margin-left: auto;">
+                    {% csrf_token %}<!--Кнопка выхода-->
+                    <button type="submit" style="background-color: #F5E71C;border-radius: 30px;font-size: 35px;color: #6607e2;padding: 5px;width: 300px;;font-weight: 600;border: None;    cursor: pointer;">Выйти</button>
+                </form>
+            </div>                
+    </div>
+</body>
+</html>

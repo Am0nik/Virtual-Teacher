@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Вход</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+<body>
+    <header><!--Шапка-->
+        <a href="{% url 'index' %}" class="header-h1">Виртуальный учитель</a>
+        <div class="var">
+            <div class="dropdown">
+                <a href="{% url 'profile'%}" class="main-link">Аккаунт</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'register'%}">Зарегистрироваться</a>
+                    <a href="{% url 'login'%}">Войти</a>
+                    <a href="{% url 'search-user'%}">Найти пользователя</a>
+                    <a href="{% url 'message'%}">Сообщения</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="{% url 'study' %}" class="main-link">Обучение</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'ai-teacher' %}">Учитель</a>
+                    <a href="{% url 'all_courses' %}">Курсы(темы)</a>
+                </div>
+            </div>
+    
+            <div class="dropdown">
+                <a href="{% url 'news' %}" class="main-link">Новости</a>
+                <div class="dropdown-content">
+                    <div class="sub-dropdown">
+                        <a href="{% url 'mood-text' %}" class="main-link">Новые функции</a>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'about-us' %}" class="main-link">О нас</a>
+        </div>
+    </header>
+    <div style="display: flex; justify-content: center; margin-top: 50px;">
+        <div class="dark-box" style="min-width: 600px; text-align: center;">
+            <h1>Вход</h1>
+            <br>
+            {% if form.errors %}<!--Если форма неверная(возращается из views.py , то выводиться ошибка)-->
+                <p style="color: rgb(255, 225, 0);">Неверное имя пользователя или пароль</p>
+            {% endif %}
+            
+            <form method="post"><!--Поля ввода данных для входа-->
+                {% csrf_token %}
+                
+                <label for="username">Имя пользователя:</label><br>
+                <input type="text" id="username" name="username" class="form-control-login" placeholder="Введите имя" required><br><br>
+                
+                <label for="password">Пароль:</label><br>
+                <input type="password" id="password" name="password" class="form-control-login" placeholder="Введите пароль" required><br><br>
+                
+                <button type="submit" class="btn-login">Войти</button>
+            </form>
+            
+            
+            <br>
+            <p>Нет аккаунта? <a href="{% url 'register' %}" style="color: rgb(255, 192, 33);">Зарегистрироваться</a></p><!--Если нет аккаунта , то зарегетаться-->
+        </div>
+    </div>
+</body>
+</html>
